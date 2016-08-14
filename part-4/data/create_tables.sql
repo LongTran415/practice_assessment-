@@ -1,0 +1,18 @@
+CREATE TABLE publishers (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR NOT NULL UNIQUE
+);
+
+CREATE TABLE authors (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR NOT NULL UNIQUE
+);
+
+CREATE TABLE books (
+  id INTEGER PRIMARY KEY,
+  title VARCHAR NOT NULL,
+  author_id INTEGER NOT NULL,
+  publisher_id INTEGER NOT NULL,
+  FOREIGN KEY(author_id) REFERENCES author(id),
+  FOREIGN KEY(publisher_id) REFERENCES publisher(id)
+);
